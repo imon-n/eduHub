@@ -20,7 +20,9 @@ const UploadMaterial = () => {
     if (user?.email) {
       axiosSecure
         .get(`/courses?email=${user.email}&status=approved`)
-        .then((res) => setApprovedSessions(res.data))
+        .then((res) => {
+          setApprovedSessions(res.data.courses)
+        })
         .catch((err) => console.error("Failed to fetch approved sessions:", err));
     }
   }, [user?.email, axiosSecure]);

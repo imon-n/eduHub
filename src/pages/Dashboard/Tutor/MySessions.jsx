@@ -14,7 +14,8 @@ const MySessions = () => {
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await axiosSecure.get(`/courses?email=${user.email}`);
-      return res.data;
+      console.log("Sessions API response:", res.data.courses);
+      return res.data.courses;
     },
   });
 

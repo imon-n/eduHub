@@ -25,7 +25,7 @@ const BookedSessions = () => {
 
       try {
         const sessionIds = payments.map(p => p.courseId);
-        const res = await axiosSecure.get("/courses"); // Get all courses
+        const res = await axiosSecure.get("/courses?paginate=false"); // Get all courses
         const allCourses = res.data;
 
         // Filter only paid/booked sessions
@@ -64,7 +64,7 @@ const BookedSessions = () => {
                 </p>
                 <p className="text-gray-600">
                   <span className="font-medium">Class Time:</span>{" "}
-                  {session.classStart} → {session.classEnd}
+                  {session.classStart} 
                 </p>
                 <p className="text-gray-600">
                   <span className="font-medium">Registration Fee:</span> $

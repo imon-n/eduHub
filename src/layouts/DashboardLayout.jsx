@@ -4,7 +4,7 @@ import {
   FaUserEdit,
   FaUserShield,
 } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, Link } from "react-router";
 import useUserRole from "../hooks/useUserRole";
 import Logo1 from "../pages/Logo/Logo";
 
@@ -120,15 +120,15 @@ const DashboardLayout = () => {
           )}
 
           <li>
-            <NavLink
-              to="/dashboard/profile"
+            <Link
+              to="/dashboard"
               className={({ isActive }) =>
                 isActive ? "bg-white text-[#96ac35]" : undefined
               }
             >
               <FaUserEdit className="inline-block mr-2" />
               Update Profile
-            </NavLink>
+            </Link>
           </li>
 
           {/* tutor links  */}

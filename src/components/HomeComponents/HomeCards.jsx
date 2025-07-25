@@ -15,13 +15,10 @@ const HomeCards = () => {
     queryKey: ["courses"],
     queryFn: async () => {
       const res = await axiosSecure.get("/courses");
-      const rawData = res.data;
-
-      // Sort by classStart date descending
+      const rawData = res.data.courses;
       const sorted = rawData.sort(
         (a, b) => new Date(b.classStart) - new Date(a.classStart)
       );
-
       return sorted.slice(0, 6);
     },
   });
