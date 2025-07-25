@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 const Course = ({ course }) => {
-  const {_id, title,description,classStart,classEnd,name,duration,registrationStart,registrationEnd,status} = course;
+  const {_id, title,description,name,duration,registrationStart,registrationEnd} = course;
   return (
     <div className="border p-4 pt-4 rounded-lg shadow-md bg-white">
       <h2 className="text-xl font-bold text-[#96ac35] mb-2">{title}</h2>
