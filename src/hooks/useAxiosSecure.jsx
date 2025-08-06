@@ -2,11 +2,9 @@ import axios from "axios";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "https://study-zone-delta.vercel.app/",
 });
 
-// https://study-zone-delta.vercel.app
-// http://localhost:5000/
 
 // https://study-hub-server-two.vercel.app
 
