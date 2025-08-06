@@ -1,16 +1,19 @@
 import axios from "axios";
-import { useNavigate } from "react-router";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:5000/",
 });
+
+// https://study-zone-delta.vercel.app
+// http://localhost:5000/
+
+// https://study-hub-server-two.vercel.app
 
 let isInterceptorSet = false;
 
 const useAxiosSecure = () => {
-  const { user, logOut } = useAuth();
-  const navigate = useNavigate();
+  const { user } = useAuth();
 
   if (user?.accessToken && !isInterceptorSet) {
     axiosSecure.interceptors.request.use(
@@ -22,26 +25,6 @@ const useAxiosSecure = () => {
     );
     isInterceptorSet = true;
   }
-
-  axiosSecure.interceptors.response.use(
-    (res) => {
-      return res;
-    },
-    (error) => {
-      const status = error.status;
-      if (status === 403) {
-        navigate("/error-page");
-      } else if (status === 401) {
-        logOut()
-          .then(() => {
-            navigate("/login");
-          })
-          .catch(() => {});
-      }
-
-      return Promise.reject(error);
-    }
-  );
 
   return axiosSecure;
 };

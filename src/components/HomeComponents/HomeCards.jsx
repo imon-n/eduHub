@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import HomeCard from "./HomeCard";
+import useAxios from "../../hooks/useAxios";
 
 const HomeCards = () => {
-  const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxios();
 
   const {
     data: courses = [],
@@ -15,7 +15,8 @@ const HomeCards = () => {
     queryKey: ["courses"],
     queryFn: async () => {
       const res = await axiosSecure.get("/courses");
-      const rawData = res.data.courses;
+      const rawData = res.data;
+      console.log(rawData); // undefined , why
       const sorted = rawData.sort(
         (a, b) => new Date(b.classStart) - new Date(a.classStart)
       );

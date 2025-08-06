@@ -1,6 +1,6 @@
-import { useForm } from "react-hook-form";
-import { useParams, useNavigate } from "react-router";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
@@ -33,13 +33,15 @@ const UpdateCourse = () => {
     const { _id, ...updateData } = data;
 
     try {
-      const res = await axiosSecure.put(`/courses/${id}`, updateData);
+      const res = await axiosSecure.patch(`/courses/${id}`, updateData);
 
-      Swal.fire("Success!", "Session updated successfully.", "success");
-        navigate("/dashboard/mySessions"); // ✅ Navigate after update
-    //   if (res.data?.modifiedCount > 0) {
-        
-    //   }
+      if (res.data.modifiedCount > 0) {
+        Swal.fire("Success!", "Session updated successfully.", "success");
+        navigate("/dashboard/mySessions");
+      } else {
+        Swal.fire("No Change", "No fields were updated.", "info");
+      }
+      
     } catch (error) {
       console.error("Update course failed:", error);
       Swal.fire("Error", "Failed to update session", "error");

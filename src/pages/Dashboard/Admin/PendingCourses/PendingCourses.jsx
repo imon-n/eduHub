@@ -14,6 +14,7 @@ const PendingCourses = () => {
     queryKey: ["courses", "pending"],
     queryFn: async () => {
       const res = await axiosSecure.get("/courses?status=pending");
+      console.log(res.data);
       return res.data;
     },
   });

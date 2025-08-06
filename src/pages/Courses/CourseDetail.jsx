@@ -79,7 +79,7 @@ const CourseDetail = () => {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 border rounded-lg shadow bg-white">
-      <h1 className="text-3xl font-bold text-violet-700 mb-4">{course.title}</h1>
+      <h1 className="text-3xl font-bold text-[#96ac35] mb-4">{course.title}</h1>
       <p className="text-gray-700 mb-2"><strong>Instructor:</strong> {course.name}</p>
       <p className="text-gray-700 mb-2"><strong>Email:</strong> {course.email}</p>
       <p className="text-gray-700 mb-4"><strong>Description:</strong> {course.description}</p>

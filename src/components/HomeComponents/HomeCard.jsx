@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const HomeCard = ({ course }) => {
   return (
     <div className="border p-4 rounded-lg shadow-md bg-white">
@@ -8,9 +10,12 @@ const HomeCard = ({ course }) => {
       <p className="text-sm text-gray-500">
         <strong>Duration:</strong> {course.duration}
       </p>
-      <div className="btn w-44 rounded-4xl bg-[#96ac35] font-bold text-white">
-        Book Now
-      </div>
+      <Link
+        to={`/courses/${course._id}`}
+        className="btn w-34 mt-3 rounded-4xl bg-[#96ac35] font-bold text-white"
+      >
+        Details
+      </Link>
     </div>
   );
 };

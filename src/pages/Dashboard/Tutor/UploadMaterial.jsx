@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 const UploadMaterial = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-
   const [approvedSessions, setApprovedSessions] = useState([]);
+  
   const [formData, setFormData] = useState({
     title: "",
     studySessionId: "",
@@ -21,7 +21,7 @@ const UploadMaterial = () => {
       axiosSecure
         .get(`/courses?email=${user.email}&status=approved`)
         .then((res) => {
-          setApprovedSessions(res.data.courses)
+          setApprovedSessions(res.data)
         })
         .catch((err) => console.error("Failed to fetch approved sessions:", err));
     }

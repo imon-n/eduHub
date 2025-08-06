@@ -20,7 +20,7 @@ const Course = ({ course }) => {
 
       <Link
         to={`/courses/${_id}`}
-        className="btn w-34 mt-3 rounded-4xl bg-[#3b35ac] font-bold text-white"
+        className="btn w-34 mt-3 rounded-4xl bg-[#96ac35] font-bold text-white"
       >
         Details
       </Link>

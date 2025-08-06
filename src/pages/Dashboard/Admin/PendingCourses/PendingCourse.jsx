@@ -47,12 +47,16 @@ const PendingCourse = ({ course, refetch }) => {
   };
 
   const handleApproveSubmit = async () => {
+    console.log("handle status")
     const finalFee = feeType === "free" ? 0 : Number(fee);
     try {
-      const res = await axiosSecure.patch(`/course/${_id}/status`, {
+      const res = await axiosSecure.patch(`/courses/${_id}/status`, {
         status: "approved",
         registrationFee: finalFee,
       });
+
+      console.log(res.data);
+      refetch();
 
       if (res.data.modifiedCount > 0) {
         Swal.fire("Success", "Course approved!", "success");
@@ -71,7 +75,6 @@ const PendingCourse = ({ course, refetch }) => {
     if (!rejectionReason.trim()) {
       return Swal.fire("Validation Error", "Rejection reason is required", "warning");
     }
-
     const rejectedData = {
       _id,
       title,
@@ -93,7 +96,8 @@ const PendingCourse = ({ course, refetch }) => {
     try {
       const res = await axiosSecure.post("/rejected", rejectedData);
 
-      if (res.data.insertedId && res.data.deletedId) {
+      if (res.data.insertedId) {
+        console.data(res.data)
         Swal.fire("Rejected!", "Course moved to rejected list.", "success");
         handleCloseModals();
         refetch();
@@ -118,9 +122,9 @@ const PendingCourse = ({ course, refetch }) => {
           <button onClick={handleApproveClick} className="btn btn-sm btn-outline btn-accent">
             <FaCheck />
           </button>
-          <button onClick={handleRejectClick} className="btn btn-sm btn-outline btn-error">
+          {/* <button onClick={handleRejectClick} className="btn btn-sm btn-outline btn-error">
             <FaTimesCircle />
-          </button>
+          </button> */}
         </td>
       </tr>
 
@@ -231,7 +235,7 @@ const PendingCourse = ({ course, refetch }) => {
               </div>
             </div>
             <div className="modal-action mt-4 flex justify-between">
-              <button onClick={handleRejectSubmit} className="btn btn-error text-white">Confirm Reject</button>
+              <button type="button" onClick={handleRejectSubmit} className="btn btn-error text-white">Confirm Reject</button>
               <button onClick={handleCloseModals} className="btn btn-ghost">Cancel</button>
             </div>
           </div>

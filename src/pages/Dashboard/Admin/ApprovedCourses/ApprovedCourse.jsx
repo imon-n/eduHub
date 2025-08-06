@@ -26,10 +26,13 @@ const ApprovedCourse = ({ course, refetch }) => {
   const handleClose = () => setIsModalOpen(false);
 
   const handleFeeUpdate = async () => {
+
     try {
-      const res = await axiosSecure.patch(`/course/${_id}/fee`, {
+      const res = await axiosSecure.patch(`/courses/${_id}/fee`, {
         registrationFee: fee,
       });
+
+      console.log("Backend response:", res.data);
 
       if (res.data.modifiedCount > 0) {
         Swal.fire("Success", "Registration fee updated", "success");
@@ -45,6 +48,7 @@ const ApprovedCourse = ({ course, refetch }) => {
   };
 
   const handleDelete = async () => {
+    console.log(`delete - ${title}`);
     const confirm = await Swal.fire({
       title: "Are you sure?",
       text: `You are about to delete "${title}". This action cannot be undone!`,
@@ -59,43 +63,11 @@ const ApprovedCourse = ({ course, refetch }) => {
 
     try {
       const res = await axiosSecure.delete(`/courses/${_id}`);
-      if (res.data.deletedId) {
-        Swal.fire("Deleted!", "Course has been deleted.", "success");
-        refetch();
-      }
+      Swal.fire("Deleted!", "Course has been deleted.", "success");
+      refetch();
     } catch (error) {
       console.error("Delete error:", error);
       Swal.fire("Error", "Failed to delete course.", "error");
-    }
-  };
-
-  const handleStatus = async () => {
-    const confirm = await Swal.fire({
-      title: "Are you sure you want to mark this course as pending?",
-      text: "This action will change the course status to 'pending'.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes, mark as pending",
-      cancelButtonText: "Cancel",
-    });
-
-    if (!confirm.isConfirmed) return;
-
-    try {
-      await axiosSecure.patch(`/course/${_id}/status`, {
-        status: "pending",
-      });
-
-      if (refetch) refetch();
-
-      Swal.fire(
-        "Updated!",
-        "The course has been marked as pending.",
-        "success"
-      );
-    } catch (error) {
-      console.error("Status update failed:", error);
-      Swal.fire("Error", "Failed to mark course as pending.", "error");
     }
   };
 
@@ -110,12 +82,6 @@ const ApprovedCourse = ({ course, refetch }) => {
             className="btn btn-sm btn-outline btn-info"
           >
             <FaEye />
-          </button>
-          <button
-            onClick={handleStatus}
-            className="btn btn-sm btn-outline btn-ghost"
-          >
-            <FaTimes />
           </button>
           <button
             onClick={handleDelete}
@@ -174,6 +140,7 @@ const ApprovedCourse = ({ course, refetch }) => {
             {/* Optional Close Button Below */}
             <div className="modal-action mt-4">
               <button
+                type="button"
                 onClick={handleFeeUpdate}
                 className="btn btn-success text-white"
               >

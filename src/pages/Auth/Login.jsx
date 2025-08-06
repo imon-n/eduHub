@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router";
-import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 
 const Login = () => {
@@ -31,8 +31,6 @@ const Login = () => {
   const handleLoginWithGoogle = () => {
     signInWithGoogle()
       .then(async (result) => {
-        setUser(result.user);
-        
         const userInfo = {
           name: result.user.displayName,
           email: result.user.email,
@@ -43,14 +41,17 @@ const Login = () => {
 
         await axiosInstance.post("/users", userInfo);
 
-        Swal.fire({
-          title: `Welcome, ${result.user.displayName || ""}!`,
+        setUser(result.user);
+
+         Swal.fire({
+          title: "Login Successfully!",
           icon: "success",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "OK",
-          draggable: true,
+          timer: 1500,
+          showConfirmButton: false,
         });
-        navigate(from);
+        
+        navigate("/");
+       
       })
       .catch((error) => {
         console.log(error);
@@ -117,7 +118,7 @@ const Login = () => {
             </button>
 
             <button
-              type="submit"
+              type="button"
               onClick={handleLoginWithGoogle}
               className="btn bg-white text-black border-blue-700"
             >

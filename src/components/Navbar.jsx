@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router"; 
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import logo from "../assets/images/logo.png";
 import useAuth from "../hooks/useAuth";
@@ -46,6 +46,33 @@ const Navbar = () => {
     <div className="navbar bg-[#96ac35] text-white px-4 py-3">
       {/* Navbar Start */}
       <div className="navbar-start flex items-center gap-2">
+        
+          <div className="dropdown lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost btn-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[999] p-2 shadow bg-[#96ac35] rounded-box w-52"
+            >
+              {navLinks}
+            </ul>
+          </div>
+        
+
         <img src={logo} alt="StudyZone Logo" className="w-10 h-10 rounded-full" />
         <Link to="/" className="text-2xl font-bold tracking-wide">
           StudyZone
@@ -59,7 +86,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* Navbar End (avatar/login/register) */}
+      {/* Navbar End */}
       <div className="navbar-end flex items-center gap-3">
         {user ? (
           <div className="dropdown dropdown-end">
@@ -86,13 +113,13 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <div className="flex gap-2">
-            <Link to="/login" className="btn btn-info text-white px-5">
+          <div className="flex gap-1">
+            <Link to="/login" className="btn btn-primary text-white px-4">
               Login
             </Link>
-            <Link to="/register" className="btn btn-secondary text-white px-5">
+            {/* <Link to="/register" className="btn btn-secondary text-white px-2">
               Register
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>
