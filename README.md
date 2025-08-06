@@ -4,23 +4,23 @@
 
 Welcome to the client-side of StudyHub, a modern online educational platform built with React, Tailwind CSS, and Firebase. This application empowers tutors to offer courses and students to register, study, and take notes with ease.
 
-🌐 **Live Site:** [https://studyzone-ass12-im.surge.sh/](https://studyzone-ass12-im.surge.sh/)  
-📂 **GitHub:** [eduHub-clientSide](https://github.com/imon-n/eduHub-clientSide)
+🌐 Live Site:https://studyzone-ass12-im.surge.sh/
+📂 GitHub: https://github.com/imon-n/eduHub-clientSide
 
 ---
 
 ## 🚀 Features
 
-- 🔐 **Authentication & Authorization** using Firebase (Student / Tutor / Admin roles)
-- 📚 **Course Management**
+- 🔐 Authentication & Authorization using Firebase (Student / Tutor / Admin roles)
+- 📚 Course Management
   - Tutors can create and submit courses
   - Admin can approve or reject courses
   - Students can view and book approved sessions
-- 📆 **Session Booking** with automated session status (Ongoing / Closed)
-- 💾 **Study Materials** sharing (images or Google Drive links)
-- 📝 **Personal Notes** for students
-- 💳 **Stripe Integration** for secure payments
-- 📊 **Admin Dashboard** to manage users, courses, and system feedback
+- 📆 Session Booking with automated session status (Ongoing / Closed)
+- 💾 Study Materials sharing (images or Google Drive links)
+- 📝 Personal Notes for students
+- 💳 Stripe Integration for secure payments
+- 📊 Admin Dashboard to manage users, courses, and system feedback
 
 ---
 
@@ -94,7 +94,6 @@ We welcome all kinds of contributions!
 
 ---
 
----
 
 ## 🧠 Maintainer
 
