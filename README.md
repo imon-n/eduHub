@@ -1,8 +1,8 @@
 
 ````markdown
-# 🎓 StudyHub — Client
+# 🎓 StudyZone — Client
 
-Welcome to the client-side of **StudyHub**, a modern online educational platform built with **React**, **Tailwind CSS**, and **Firebase**. This application empowers tutors to offer courses and students to register, study, and take notes with ease.
+Welcome to the client-side of StudyHub, a modern online educational platform built with React, Tailwind CSS, and Firebase. This application empowers tutors to offer courses and students to register, study, and take notes with ease.
 
 🌐 **Live Site:** [https://studyzone-ass12-im.surge.sh/](https://studyzone-ass12-im.surge.sh/)  
 📂 **GitHub:** [eduHub-clientSide](https://github.com/imon-n/eduHub-clientSide)
