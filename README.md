@@ -100,8 +100,3 @@ We welcome all kinds of contributions!
 👨‍💻 Developed by [**@imon-n**](https://github.com/imon-n)
 
 ```
-
----
-
-Let me know if you'd like a matching `README.md` for your **server-side** project as well!
-```
