@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link, useNavigate } from "react-router";
 
 export default function AboutUs() {
   return (
@@ -73,9 +74,9 @@ export default function AboutUs() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-10 flex justify-center gap-6"
         >
-          <button className="px-8 md:px-24 py-3 bg-[#96ac35] text-white font-semibold rounded-2xl shadow-lg hover:bg-[#7e922d] transition">
-            Learn More
-          </button>
+          <Link to="/courses" className="px-8 md:px-24 py-3 bg-[#96ac35] text-white font-semibold rounded-2xl shadow-lg hover:bg-[#7e922d] transition">
+            See available Courses
+          </Link>
           
         </motion.div>
       </div>

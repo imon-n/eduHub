@@ -46,7 +46,7 @@ const HomeCards = () => {
       <h1 className="mt-20 mb-10 text-center font-bold text-3xl text-[#96ac35]">
         Featured Courses
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ml-10 gap-4 p-4">
         {courses.map((course) => (
           <HomeCard key={course._id || course.title} course={course} />
         ))}
@@ -54,7 +54,7 @@ const HomeCards = () => {
 
       <Link
         to="/courses"
-        className="flex justify-center mt-12 mb-10 items-center gap-2"
+        className="flex justify-center items-center mt-12 mb-10  gap-2"
       >
         <div className="btn w-44 rounded-4xl bg-[#96ac35] font-bold text-white">
           See All Courses

@@ -23,13 +23,6 @@ const Navbar = () => {
       });
   };
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const navLinks = (
     <>
       <li>
@@ -39,7 +32,7 @@ const Navbar = () => {
         <Link to="/tutors" className="hover:text-white">Tutors</Link>
       </li>
       <li>
-        <Link to="/courses" className="hover:text-white">Sessions</Link>
+        <Link to="/courses" className="hover:text-white">Courses</Link>
       </li>
       <li>
         <Link to="/aboutUs" className="hover:text-white">About Us</Link>

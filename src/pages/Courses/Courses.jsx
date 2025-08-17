@@ -38,7 +38,7 @@ const Courses = () => {
   return (
     <div className="p-4 max-w-7xl mx-auto">
       <h1 className="text-center font-bold text-3xl text-[#96ac35] mb-6">
-        All Approved Courses
+        All Available Courses
       </h1>
 
       {courses.length > 0 ? (
@@ -48,7 +48,7 @@ const Courses = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center text-gray-500">No approved courses found.</div>
+        <div className="text-center text-gray-500">No avaiable courses found.</div>
       )}
     </div>
   );
