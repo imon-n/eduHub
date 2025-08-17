@@ -27,6 +27,7 @@ import TutorRoutes from "../routes/TutorRoute";
 import Rejected from "../pages/Dashboard/Tutor/Rejected";
 import UploadMaterial from "../pages/Dashboard/Tutor/UploadMaterial";
 import ManageMaterials from "../pages/Dashboard/Admin/ManageMaterials/ManageMaterials";
+import AboutUs from "../components/HomeComponents/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "tutors",
         Component: AllTutors,
+      },
+      {
+        path : "aboutUs",
+        Component: AboutUs
       },
       {
         path: "/courses/:id",
