@@ -34,10 +34,13 @@ const Login = () => {
         const userInfo = {
           name: result.user.displayName,
           email: result.user.email,
+          image: result.user.photoURL,
           role: "user",
           created_at: new Date().toISOString(),
           last_log_in: new Date().toISOString(),
         };
+
+        // console.log(result.user.photoURL);
 
         await axiosInstance.post("/users", userInfo);
 

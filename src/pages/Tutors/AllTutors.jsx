@@ -28,14 +28,10 @@ const AllTutors = () => {
               key={tutor._id}
               className="bg-[#d5e4d5] shadow-lg p-6 rounded-xl border border-[#96ac35]/20 hover:shadow-xl transition duration-300"
             >
+              <img src={tutor.image} alt="" />
               <h3 className="text-lg font-semibold text-[#96ac35]">{tutor.name || "Unnamed Tutor"}</h3>
               <p className="text-sm text-gray-700 mt-1">{tutor.email}</p>
-              <button
-                className="btn btn-outline btn-success btn-sm mt-4"
-                onClick={() => console.log("Details for:", tutor._id)}
-              >
-                View Details
-              </button>
+              
             </div>
           ))}
         </div>
